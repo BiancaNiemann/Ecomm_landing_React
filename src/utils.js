@@ -1,5 +1,0 @@
-function renderImagesHtml(){
-
-}
-
-export {renderImagesHtml}

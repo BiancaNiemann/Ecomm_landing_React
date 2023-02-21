@@ -124,7 +124,6 @@ main,
 
 /*OPEN THE SHOPPING TROLLEY BOX*/
 .trolley-box,
-.nums,
 .img-box-light,
 .arrow-icon,
 .side-menu {
@@ -185,8 +184,7 @@ main,
 }
 
 .empty,
-footer,
-.nums{
+footer{
     text-align: center;
 }
 
@@ -234,26 +232,13 @@ footer,
     margin-left: 20px
 }
 
-.nums{
-    width: 20px;
-    height: 12px;
-    top: 27px;
-    right: 78px;
-    border-radius: 45%;
-    font-size: 0.65rem;
-}
-
-.nums,
 .add-btn,
 .checkout{
     background-color: hsl(26, 100%, 55%);
 }
 
-/*MAIN PART OF PAGE
-.mobile-prev,
-.mobile-next{
-    display: none;
-}*/
+/*MAIN PART OF PAGE*/
+
 main{
     padding: 90px 50px 100px 50px;
 }
@@ -263,7 +248,8 @@ main{
 }
 
 .thumbnails{
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 550px
 }
 
 .thumbnail-img{
@@ -402,7 +388,7 @@ footer{
 .close-icon{
     width: 22px;
     margin-left: 520px;
-    z-index: 2;
+    z-index: 3000;
 }
 
 .arrow-icon{
@@ -540,7 +526,8 @@ footer{
         display: none;
     }
 
-    .main-img{
+    .main-img,
+    .no-pointer{
         cursor: none;
     }
 
@@ -548,8 +535,6 @@ footer{
         top:540px;
         padding: 40px;
         height: 40px;
-        width: 40px;
-        z-index: 2000;
     }
 
     .prev{

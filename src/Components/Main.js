@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Lightbox from "../Components/Lightbox";
 
 import minus from "../images/icon-minus.svg"
 import plus from "../images/icon-plus.svg"
@@ -10,12 +9,13 @@ import image3 from "../images/image-product-3.jpg"
 import image4 from "../images/image-product-4.jpg"
 import next from "../images/icon-next.svg"
 import prev from "../images/icon-previous.svg"
+import close from "../images/icon-close-white.svg"
 
 
 export default function Main({getOrder, trolleyItems, addToCart}){
     const [isModal, setIsModal] = useState(false)
     const [picSelect, setPicSelect] = useState(0)
-
+    console.log(isModal)
     const picArray = [image1, image2, image3, image4]
     const picSelected = picArray[picSelect]
 
@@ -45,22 +45,37 @@ export default function Main({getOrder, trolleyItems, addToCart}){
         }
     }
 
+    function renderThumbImagesHtml(){
+        return (                    
+            <div className="thumbnails">
+                <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" onClick={()=> getImage(0)} />
+                <img className="thumbnail-img" src={image2} alt="sneakers on a stone thumbnail" onClick={()=> getImage(1)}/>
+                <img className="thumbnail-img" src={image3} alt="One sneaker on top of stone frontview thumbnail" onClick={()=> getImage(2)} />
+                <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail" onClick={()=> getImage(3)} />
+            </div>
+        )
+    }
+
     return ( 
         <main>
             <div className="lightbox">
                 <img className="arrow-icon prev mobile" src={prev} onClick={imageScrollPrev}/>
                 <img className="arrow-icon next mobile" src={next} onClick={imageScrollNext}/>
-                <img className="main-img main-light" src={picSelected} alt="pair of sneakers" onClick={showModal} />
-                
-                <div className="thumbnails">
-                    <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" onClick={()=> getImage(0)} />
-                    <img className="thumbnail-img" src={image2} alt="sneakers on a stone thumbnail" onClick={()=> getImage(1)}/>
-                    <img className="thumbnail-img" src={image3} alt="One sneaker on top of stone frontview thumbnail" onClick={()=> getImage(2)} />
-                    <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail" onClick={()=> getImage(3)} />
-                </div>
+                {!isModal ? <img className="main-img main-light" src={picSelected} alt="pair of sneakers" onClick={showModal} /> : <img className="main-img main-light" src={image1} alt="pair of sneakers" />}
+                {renderThumbImagesHtml()}
             </div>
-            
-            <Lightbox isModal={isModal}/>
+                        
+            {isModal && 
+                <div className="img-box-light" >
+                    <div className="lightbox">
+                        <img className="close-icon" src={close} onClick={showModal}/>
+                        <img className="arrow-icon prev" src={prev} onClick={imageScrollPrev}/>
+                        <img className="arrow-icon next" src={next} onClick={imageScrollNext}/>
+                        <img className="main-img main-light" src={picSelected} alt="pair of sneakers" />
+                    </div>
+                    {renderThumbImagesHtml()}
+                </div>
+            }
 
             <div className="info-box">
                 <div>
@@ -87,3 +102,4 @@ export default function Main({getOrder, trolleyItems, addToCart}){
       </main>
     )
 }
+
