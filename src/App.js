@@ -4,14 +4,18 @@ import Main from "./Components/Main"
 import Footer from "./Components/Footer"
 import Trolley from "./Components/Trolley"
 
-
-
-
 function App() {
   const [trolleyClick, setTrolleyClick] = useState(false)
   const [itemOrder, setItemOrder] = useState(0)
   const [added, setAdded] = useState(false)
   
+  //Sets add items to cart to true so they show in trolley
+  function handleAddToCartClick(){
+    if (itemOrder > 0){
+      setAdded(true)
+    }
+  }
+  //const addToCart = useCallback(()=> setAdded(prevAdded => true), [setAdded])
   //Adds or minusses from total for order to add to cart
   function getOrder(num){
     if (num === -1 && itemOrder >=1 || num === 1){
@@ -30,7 +34,6 @@ function App() {
     setItemOrder(0)
   }
 
-  const addToCart = useCallback(()=> setAdded(prevAdded => !prevAdded), [setAdded])
 
  return (
     <div className="App">
@@ -38,7 +41,7 @@ function App() {
           openTrolleyClick={openTrolleyClick} 
       />
       <Main 
-          addToCart={addToCart}
+          addToCart={handleAddToCartClick}
           getOrder={getOrder} 
           trolleyItems={itemOrder} 
       />

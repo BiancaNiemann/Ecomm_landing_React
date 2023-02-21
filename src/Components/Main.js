@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Lightbox from "../Components/Lightbox";
-import Trolley from "./Trolley";
 
 import minus from "../images/icon-minus.svg"
 import plus from "../images/icon-plus.svg"
@@ -18,30 +17,15 @@ export default function Main({getOrder, trolleyItems, addToCart}){
     const picArray = [image1, image2, image3, image4]
     const picSelected = picArray[picSelect]
 
+    //Shows lightbox with images when main image is clicked
     function showModal(){
         setIsModal(prevModal => !prevModal)
     }
 
+    //Gets image from thumbnail click to display as main image
     function getImage(num){
         setPicSelect(num)
     }
-
-    function imageScrollPrev(){
-        if (picSelect > 0){
-            setPicSelect(prevSelect => prevSelect - 1)
-        } else if (picSelect === 0){
-            setPicSelect(3)
-        }
-    }
-
-    function imageScrollNext(){
-        if (picSelect < 3){
-            setPicSelect(prevSelect => prevSelect + 1)
-        } else if (picSelect === 3){
-            setPicSelect(0)
-        }
-    }
-    
 
     return ( 
         <main>
@@ -77,7 +61,7 @@ export default function Main({getOrder, trolleyItems, addToCart}){
                     <h5 id="total">{trolleyItems}</h5>
                     <img id="plus" className="plus" src={plus} onClick={()=> getOrder(1)}/>
                     </div>
-                    <button id="add-btn" className="add-btn"><img className="add-cart-icon" src={cart} onClick={addToCart}/>Add to cart</button>
+                    <button id="add-btn" className="add-btn" onClick={addToCart}><img className="add-cart-icon" src={cart} />Add to cart</button>
                 </div>
             </div>
       </main>

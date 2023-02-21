@@ -14,6 +14,7 @@ export default function Lightbox({isModal}){
 
     const picArray = [image1, image2, image3, image4]
     const picSelected = picArray[picSelect]
+    console.log(picSelect)
 
     useEffect(() =>{
         if(isModal){
@@ -24,10 +25,6 @@ export default function Lightbox({isModal}){
 
     function showModal(){
         setOpenModal(prevModal => !prevModal)
-    }
-
-    function getImage(num){
-        setPicSelect(num)
     }
 
     function imageScrollPrev(){
@@ -59,10 +56,10 @@ export default function Lightbox({isModal}){
                     </div>
                     
                     <div className="thumbnails">
-                        <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" onClick={()=> getImage(0)} />
-                        <img className="thumbnail-img" src={image2} alt="sneakers on a stone thumbnail" onClick={()=> getImage(1)}/>
-                        <img className="thumbnail-img" src={image3} alt="One sneaker on top of stone frontview thumbnail" onClick={()=> getImage(2)} />
-                        <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail" onClick={()=> getImage(3)} />
+                        <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" />
+                        <img className="thumbnail-img" src={image2} alt="sneakers on a stone thumbnail" />
+                        <img className="thumbnail-img" src={image3} alt="One sneaker on top of stone frontview thumbnail"  />
+                        <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail"  />
                     </div>
                 </div>
             </div>

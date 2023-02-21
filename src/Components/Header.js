@@ -30,7 +30,7 @@ export default function Header({openTrolleyClick}){
         <header>
             <nav className="navbar">
 
-                {!hamburger && <img id="hamburger" className="hamburger" src={menu} alt="hamburger menu" onClick={sideBar}/>}
+                <img id="hamburger" className="hamburger" src={menu} alt="hamburger menu" onClick={sideBar}/>
                 {cross && <img className="x" id="x" src={close} alt="x to close" onClick={sideBar}/>}
                 {!hamburger && <img className="logo" src={logo} alt="company logo"/>}
                 {!hamburger && <ul className="list-box">{menuList()}</ul>}
@@ -44,16 +44,3 @@ export default function Header({openTrolleyClick}){
         </header>
     )
 }
-///<Trolley openTrolley={openTrolley} />
-//was duplicated in original code
-
-/*<div className="side-menu" id="side-menu">
-<ul className="side-list">
-<img className="x" id="x" src={close}/>
-<li className="side-item">Collections</li>
-<li className="side-item">Men</li>
-<li className="side-item">Women</li>
-<li className="side-item">About</li>
-<li className="side-item">Contact</li>
-</ul>
-</div>*/

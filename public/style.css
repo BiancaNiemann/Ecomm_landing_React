@@ -27,7 +27,8 @@ main,
 .price-discount,
 .item-line,
 .item-add-minus,
-.img-box-light{
+.img-box-light,
+.total-price{
     align-items: center;
 }
 
@@ -84,6 +85,10 @@ main,
 .x,
 .hamburger{
     cursor: pointer;
+}
+
+.hamburger{
+    display: none;
 }
 
 .list-item{
@@ -153,10 +158,6 @@ main,
 .ordered,
 .info-title{
     font-size: 0.85rem;
-}
-
-.total-price{
-    align-items: center;
 }
 
 .cart,
@@ -420,37 +421,27 @@ footer{
 }
 
 /*OPEN SIDE MENU ON HAMBURGER CLICK*/
-.side-greyout{
-    background-color: rgba(10, 10, 10, 0.767);
-    z-index: 2;
-}
-
 .side-menu{
     top: -20px;
     background-color: white;
     width: 40%;
-    height: 2300px;
+    height: 2500px;
     padding: 20px;
     box-shadow:0 0 0 1000px rgba(10, 10, 10, 0.767) ;
     list-style: none;
+    z-index: 1000;
 }
 
 .x{
     height: 30px;
-    margin-left: 38%;
-    margin-top: -30px;
-    z-index: 5;
-}
-
-.side-item{
-    font-size: 2.75rem;
-    font-weight: 700;
-    line-height: 250%;
+    margin-left: 220px;
+    margin-top: -120px;
+    z-index: 2000;
 }
 
 /*MEDIA QUERIES*/
 
-@media (max-width: 375px) {
+@media (max-width: 700px) {
     /*NAV BAR*/
     .navbar{
         height: 200px;
@@ -461,6 +452,11 @@ footer{
         padding-left: 50px;
         margin-right: 50px;
         height: 50px;
+    }
+
+    .list-box,
+    .thumbnails{
+        display: none;
     }
 
     .logo{
@@ -477,16 +473,9 @@ footer{
         padding-right: 40px;
     }
 
-    .nums{
-        width: 60px;
-        height: 42px;
-        font-size: 2rem;
-        right: 190px;
-    }
-
     .trolley-box{
-        width: 90%;
-        right: 5%;
+        width: 900px;
+        left: 55px;
         top: 240px;
         height: 600px;
         border-radius: 30px;
@@ -530,26 +519,16 @@ footer{
         margin-top: 50px;
     }
     /*MAIN*/
-    .mobile-prev,
-    .mobile-next{
-        display: block;
-    }
     main{
         flex-direction: column;
         padding: 0;
     }
 
-    .thumbnails{
-        
+    .main-light{
+        width: 1000px
     }
 
-    .main-img{
-        width: 100%;
-        border-radius: 0px;
-        height: 780px;
-    }
-
-    .arrow-icon{
+      .arrow-icon{
         top: 540px;
         padding: 40px;
         height: 40px;
@@ -562,10 +541,6 @@ footer{
 
     .mobile-next{
         right: -600px
-    }
-
-    .img-box-light{
-       
     }
 
     .info-title{
