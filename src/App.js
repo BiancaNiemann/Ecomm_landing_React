@@ -4,7 +4,7 @@ import Main from "./Components/Main"
 import Footer from "./Components/Footer"
 import Trolley from "./Components/Trolley"
 
-import "./style.css"
+
 
 
 function App() {
