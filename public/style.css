@@ -439,6 +439,10 @@ footer{
     z-index: 2000;
 }
 
+.mobile{
+    display: none;
+}
+
 /*MEDIA QUERIES*/
 
 @media (max-width: 700px) {
@@ -528,19 +532,32 @@ footer{
         width: 1000px
     }
 
-      .arrow-icon{
-        top: 540px;
+    .mobile{
+        display: flex;
+    }
+
+    .img-box-light{
+        display: none;
+    }
+
+    .main-img{
+        cursor: none;
+    }
+
+    .arrow-icon{
+        top:540px;
         padding: 40px;
         height: 40px;
         width: 40px;
+        z-index: 2000;
     }
 
-    .mobile-prev{
-        left: 40px
+    .prev{
+        left: 10px
     }
 
-    .mobile-next{
-        right: -600px
+    .next{
+        left: 870px
     }
 
     .info-title{

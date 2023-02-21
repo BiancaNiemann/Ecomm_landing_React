@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { renderImagesHtml } from "../utils";
 
 import image1 from "../images/image-product-1.jpg"
 import image2 from "../images/image-product-2.jpg"
@@ -14,7 +15,6 @@ export default function Lightbox({isModal}){
 
     const picArray = [image1, image2, image3, image4]
     const picSelected = picArray[picSelect]
-    console.log(picSelect)
 
     useEffect(() =>{
         if(isModal){
@@ -48,12 +48,9 @@ export default function Lightbox({isModal}){
             <div className="img-box-light" >
                 <div className="lightbox">
                     <img className="close-icon" src={close} onClick={showModal}/>
-                    <img className="arrow-icon prev" src={prev} onClick={()=> imageScrollPrev()}/>
+                    <img className="arrow-icon prev" src={prev} onClick={imageScrollPrev}/>
                     <img className="arrow-icon next" src={next} onClick={imageScrollNext}/>
-    
-                    <div className="slide">
-                        <img className="main-img main-light" src={picSelected} alt="pair of sneakers"  />
-                    </div>
+                    <img className="main-img main-light" src={picSelected} alt="pair of sneakers"  />
                     
                     <div className="thumbnails">
                         <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" />

@@ -8,6 +8,8 @@ import image1 from "../images/image-product-1.jpg"
 import image2 from "../images/image-product-2.jpg"
 import image3 from "../images/image-product-3.jpg"
 import image4 from "../images/image-product-4.jpg"
+import next from "../images/icon-next.svg"
+import prev from "../images/icon-previous.svg"
 
 
 export default function Main({getOrder, trolleyItems, addToCart}){
@@ -30,9 +32,9 @@ export default function Main({getOrder, trolleyItems, addToCart}){
     return ( 
         <main>
             <div className="lightbox">
-                <div className="slide">
-                    <img className="main-img main-light" src={picSelected} alt="pair of sneakers" onClick={()=> showModal()} />
-                </div>
+                <img className="arrow-icon prev mobile" src={prev} />
+                <img className="arrow-icon next mobile" src={next} />
+                <img className="main-img main-light" src={picSelected} alt="pair of sneakers" onClick={showModal} />
                 
                 <div className="thumbnails">
                     <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" onClick={()=> getImage(0)} />
@@ -41,7 +43,9 @@ export default function Main({getOrder, trolleyItems, addToCart}){
                     <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail" onClick={()=> getImage(3)} />
                 </div>
             </div>
+
             <Lightbox isModal={isModal}/>
+
             <div className="info-box">
                 <div>
                     <h3 className="info-title">Sneaker Company</h3>
@@ -67,3 +71,19 @@ export default function Main({getOrder, trolleyItems, addToCart}){
       </main>
     )
 }
+
+/*            <div className="img-box-light" >
+                <div className="lightbox">
+                    <img className="close-icon" src={close} onClick={showModal}/>
+                    <img className="arrow-icon prev" src={prev} onClick={()=> imageScrollPrev()}/>
+                    <img className="arrow-icon next" src={next} onClick={imageScrollNext}/>
+                    <img className="main-img main-light" src={picSelected} alt="pair of sneakers"  />
+                    
+                    <div className="thumbnails">
+                        <img className="thumbnail-img" src={image1}alt="pair of sneakers thumbnail" />
+                        <img className="thumbnail-img" src={image2} alt="sneakers on a stone thumbnail" />
+                        <img className="thumbnail-img" src={image3} alt="One sneaker on top of stone frontview thumbnail"  />
+                        <img className="thumbnail-img" src={image4} alt="One sneaker on top of stone sideview thumbnail"  />
+                    </div>
+                </div>
+            </div>*/
